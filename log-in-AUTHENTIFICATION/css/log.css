@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    
+}
+
+form {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    animation: shadow 10s infinite linear reverse;
+   
+    
+}
+
+@keyframes shadow {
+    0%{box-shadow:  0px -1px 1px 0.5px rgb(109, 138, 255);}
+    25%{box-shadow: 1px  0px 1px 0.5px rgb(255, 109, 109);}
+    50%{box-shadow: 0px  1px 1px 0.5px rgb(169, 166, 19);}
+    75%{box-shadow:-1px  0px 1px 0.5px rgb(201, 109, 255);}
+    100%{box-shadow:0px -1px 1px 0.5px rgb(112, 255, 99);}
+    
+}
+@keyframes text {
+    0%{text-shadow:  0px -1px  rgba(16, 34, 104, 0.336);}
+    25%{text-shadow: 1px  0px  rgba(255, 109, 109, 0.447);}
+    50%{text-shadow: 0px  1px  rgba(169, 167, 19, 0.486);}
+    75%{text-shadow:-1px  0px  rgba(201, 109, 255, 0.466);}
+    100%{text-shadow:0px -1px  rgba(112, 255, 99, 0.432);}
+    
+}
+h3 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    animation: text 2s infinite linear reverse;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+}
+
+#submit {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to right, rgb(100, 102, 176), rgb(175, 106, 176));
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#submit:hover {
+    background: linear-gradient(to right, rgb(75, 76, 133), rgb(135, 76, 146));
+    
+}
+
+.forgot-password {
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+}
+
+.social-login {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-login button {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.social-login button img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.social-login button:hover {
+    background-color: #eaeaea;
+}
+a{
+    text-decoration: none;
+    
+}
