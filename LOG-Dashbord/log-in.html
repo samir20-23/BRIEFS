@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/logs.css">
+    <title>Document</title>
+  </head>
+  <body>
+        <form id="form" action="log-in.php" method="POST">
+          <img src="imgs/Astronaut with space shuttle.gif" class="gif" />
+          <h3>Log-In</h3>
+          <h5>Email :</h5>
+            <input type="text" name="email" placeholder="email" id="email" />
+                      <span id="erremail"></span>
+          <h5>Password :</h5>
+
+          <div class="eyes">
+            <i class="fa fa-eye-slash" aria-hidden="true" id="eyeIcon1" onclick="eye1()" ></i>
+            <input type="text" name="password" placeholder="password" id="password" />
+          </div>
+
+                      <span id="errpassword"></span>
+                      <span id="error"></span>
+            <a href="sing-Up.html" id="linksignup"> <i class="fa fa-long-arrow-left" style="color:rgb(103, 0, 103);" aria-hidden="true"></i> sing-Up</a>
+            <a href="forgot.html" id="forgot">Forgot password?</a>
+            <button type="submit" name="submit" id="submit">Log in</button>
+        </form>
+        
+        <script src="js/script.js" ></script>
+  </body>
+</html>
