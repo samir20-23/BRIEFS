@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/logs.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="form" >
+      <img src="imgs/lock.png" class="imgcode" />
+      <h3>we have send  the six-digit code to your email.. </h3>
+      <div id="verified"></div>
+      <h5>code:</h5>
+      <input type="number" name="code" placeholder="Code" id="code" />
+      <div class="errs" id="errcode"></div>
+      <div class="loaderto">
+        <div class="loader"></div>
+        </div>
+      <button type="submit" id="submit">Check</button>
+      <h6>OR</h6>
+      <hr />
+      <a href="log-in.html" id="linklogin">Enter the password</a>
+      <div id="countdown" name="divtime"></div>
+    </div>
+    <script src="js/script.js" ></script>
+    <script src="code.js"></script>
+  </body>
+</html>

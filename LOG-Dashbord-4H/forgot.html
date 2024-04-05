@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/logs.css" />
+  </head>
+  <body>
+
+    <div id="form">
+      <img src="imgs/Astronaut with space shuttle.gif" class="gif" />
+
+      <h6>
+        Enter your email, and we'll send you a link to get back into
+        your account.
+      </h6>
+      <div id="verified"></div>
+      <h5>your Email :</h5>
+      <input type="text" name="email" placeholder="email" id="email" />
+      <div class="errs" id="erremail"></div>
+      <div class="loaderto">
+      <div class="loader"></div>
+      </div>
+      <button type="submit" id="submit">Send</button>
+      <h6>OR</h6>
+      <hr />
+      <a href="#" id="linksignup"  onclick=' setTimeout(function () {window.location.replace("sing-Up.html");}, 555);' > <i class="fa fa-long-arrow-left" aria-hidden="true"></i>Creat account</a>
+      <a href="#" id="linklogin"    onclick=' setTimeout(function () {window.location.replace("log-in.html");}, 555);'>Back to log-in  <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    </div>
+
+<script src="forgot-error.js"></script>
+  </body>
+</html>

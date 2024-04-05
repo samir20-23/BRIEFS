@@ -1,0 +1,200 @@
+
+
+:root{
+    --color1 :#ffffff;
+    --color2 :#f7f7f7;
+    --color3 :#c8c8c8;
+    /*shadow form*/
+    --color4 :#763e13;
+    /*title log*/
+    --color9 :#333;
+    /*submit*/
+    --color13:#ff3f3f;
+    --color7 :#4e65fd;
+    /*hover submit*/
+    --color10:#f93f3f;
+    --color11:#2b44d3;
+    /*color body*/
+    --color12:#0f18c6;
+
+    --color14:#363cbb;
+    --color15:#e94545;
+    
+    --color16:#353aa14b;
+    --color17:#d728283c;
+    
+    }
+    
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: var(--color2);
+        color: var(--color12);
+        
+    }
+      .gif{
+        width: 150px;
+        transform: translate(10%,-53%);
+        animation: movegif 50s infinite alternate;
+        position: absolute;
+        margin-top: -10px;
+    }
+    #form {
+        margin:20px;
+        width: 300px;
+        padding:15px;
+        background-color: var(--color1);
+        border-radius: 8px;
+        box-shadow: -1px 1px 10px 0.1px  var(--color12) , 1px -1px 12px var(--color10);
+        
+    }
+    
+    @keyframes movegif {
+        0%{ transform: translate(10%,-53%);}
+        50%{transform:translate(10%,-53%) rotate(5deg);}
+        100%{ transform: translate(-30%,-53%);} 
+    }
+    @keyframes movelable {
+        0%{margin-bottom: -20px;color: var(--color1); }
+        100%{margin-bottom: 5px;color: var(--color12); } 
+    }
+    
+    h3 {
+        margin: 0 0 20px;
+        font-size: 24px;
+        text-shadow:  -2px 2px 2px   var(--color16) , 2px -2px 2px var(--color17);
+        text-align: center;
+      
+    }
+    #verified{
+        text-align: center;
+    }
+    #iconVerified{
+        width: 50px;
+        box-shadow: 0 0 15px 7px #f9f9f3;
+
+
+    }
+    
+    h5{
+         margin-bottom: 2px; 
+         animation: movelable 0.6s linear alternate;
+    }
+    
+    input {
+        width: 100%;
+        height: 40px;
+        padding: 0 25px;
+        box-sizing: border-box;
+        border: 1px solid var(--color3);
+        border-radius: 4px;
+    }
+   
+    #submit {
+        width: 100%;
+        height: 40px;
+        margin-top: 10px;
+        background: linear-gradient(to right,  var(--color14),var(--color15));
+        border: 2px solid var(--color12);
+        border-radius: 8px;
+        color: var(--color1);
+        font-size: 16px;
+        cursor: pointer;
+        transition:  0.3s;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #submit:hover {
+        background: linear-gradient(to right, var(--color11),var(--color10) );
+    } 
+      #linksignup , #linklogin {
+        text-decoration: none;
+        float: left;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 2px var(--color9);
+       
+    }
+    #linklogin ,a#linklogin{float: right; text-shadow:  -2px 2px 3px   var(--color16) , 2px -2px 2px var(--color17); }
+    /*ALL*/
+      .eyes {
+        display: flex;
+        align-items: center;
+      } 
+
+       .eyes i {
+        position: absolute;
+        color: var(--color11);
+        margin-left: 5px;
+      }
+      #form  .errs{
+        margin-top: 5px;
+        text-shadow: 0 0 3px red;
+      }
+
+    /*forgot*/
+ 
+   
+ 
+    h6{
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+
+
+    /*code form*/
+    .imgcode{
+        width: 110px;
+        transform: translate(-50%,-50%);
+        animation: moveimgform 2s infinite alternate;
+        opacity: 0.9;
+    }
+
+    @keyframes moveimgform {
+        0%{transform: translate(-50%,-50%);}
+        100%{transform: translate(-53%,-55%)} 
+    }
+
+
+
+/*reload*/
+
+.loaderto{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: rgba(0, 0, 0, 0.899);
+}
+.loader {
+  border: 4px solid rgba(0, 0, 0, .1);
+  border-left-color: transparent;
+  width: 36px;
+  height: 36px;
+  animation: spin89345 1s linear infinite;
+  border-radius: 50%;
+  position: absolute;
+  left: 43%;
+  display: none;
+}
+
+@keyframes spin89345 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
