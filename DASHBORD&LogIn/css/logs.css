@@ -46,12 +46,12 @@
         display: none;
     }
     #form {
-        margin:20px;
-        width: 300px;
+        width: 350px;
         padding:15px;
         background-color: var(--color1);
         border-radius: 8px;
         box-shadow: -1px 1px 10px 0.1px  var(--color12) , 1px -1px 12px var(--color10);
+        
         
     }
     
