@@ -9,9 +9,10 @@ function filter($data){
 }
 $host = "localhost";
 $user = "SAMIR";
-$dbname="login";
+$dbname="dashboard";
 $pass="samir123";
-$tbname="myadmin";
+$tbname="login";
+$tbnamedashbord = "view";
  
 //mailer
 
@@ -22,4 +23,3 @@ $passwordmailer = "cbky ooci pmbx zhmh";
 
 //sign up database
 
-$tbnamedashbord = "view";
