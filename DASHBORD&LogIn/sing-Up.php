@@ -49,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     echo $verified;
                                 //signupdb
                                       //select
+                                      //$selected ="INSERT INTO $tbnamedashbord(id , logIn , singUp ) VALUES(0 , 0 , 0)"; $connect->exec($selected);
                                     $selectsingupdb =  $connect->query("SELECT singUp FROM $tbnamedashbord ");
                                     $signupnumber = $selectsingupdb->fetch();
                                     $number = $signupnumber['singUp'];
