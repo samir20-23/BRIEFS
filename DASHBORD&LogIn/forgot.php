@@ -1,55 +1,57 @@
 <?php
+
 session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
-if($_SERVER['REQUEST_METHOD']=="POST"){
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-$mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
 
 
     include "all.php";
 
-    if(!empty($_POST['email'])){
-    if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-    
-            
-        $email= filter($_POST['email']);
-       
-            try{
-                $con=new PDO("mysql:host=$host;dbname=$dbname",$user,$pass);
-                $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    if (!empty($_POST['email'])) {
+        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+
+
+            $email = filter($_POST['email']);
+
+            try {
+                $con = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+                $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $select = $con->query("SELECT username,email FROM $tbname WHERE email='$email'");
                 $slt = $select->fetch();
-                if($slt && $slt["email"]==$email){
-                    echo "verified";
+                if ($slt && $slt["email"] == $email) {
+
                     $username = $slt["username"];
 
-                    $_SESSION["codesession"]=$code;
-                    $_SESSION["emailsession"]=$email;
-                    
-                                        //hear send mailer
-                                                         
-                                                          
+                    $_SESSION["codesession"] = $code;
+                    $_SESSION["emailsession"] = $email;
 
-                                                        $mail->isSMTP();
-                                                        $mail->Host = "smtp.gmail.com";
-                                                        $mail->SMTPAuth = true;
-                                                        $mail->Username = $usernamemailer;
-                                                        $mail->Password = $passwordmailer;
-                                                        $mail->SMTPSecure = "ssl";
-                                                        $mail->Port = 465;
-                                                        $mail->setFrom($usernamemailer,"DASHBORD");
-                                                        $mail->addAddress($email);
-                                                        $mail->Subject ="BASHBORD";
-                                                        $mail->isHTML(true);
-                                                        $style = "
+                    //hear send mailer
+
+
+
+                    $mail->isSMTP();
+                    $mail->Host = "smtp.gmail.com";
+                    $mail->SMTPAuth = true;
+                    $mail->Username = $usernamemailer;
+                    $mail->Password = $passwordmailer;
+                    $mail->SMTPSecure = "ssl";
+                    $mail->Port = 465;
+                    $mail->setFrom($usernamemailer, "DASHBORD");
+                    $mail->addAddress($email);
+                    $mail->Subject = "BASHBORD";
+                    $mail->isHTML(true);
+                    $style = "
     <body  style='
     height:70vh; 
     border-radius: 22px;
@@ -82,48 +84,43 @@ $mail = new PHPMailer(true);
     </div>
   </body>
                                                         ";
-                                                        $mail->Body =$style;
-                                                        $mail->send();
-                                                       
-                                                    
-                                                        
-                                                        
-                                                        
-                                                      //select
+                    $mail->Body = $style;
+                    $mail->send();
 
-                                             $verified = "verified";
-                                             $selectforgotdb =  $con->query("SELECT forgot FROM $tbnamedashbord ");
-                                             $forgotnumber = $selectforgotdb->fetch();
-                                             $number= $forgotnumber['forgot'];
-                                             
-                                             if($verified == "verified"){
-                                                $number++;
-                                                $update ="UPDATE $tbnamedashbord SET forgot='$number' ";
-                                                $updateforgot = $con->prepare($update);
-                                                $updateforgot->execute();}
-         
-                                             //dashbord
 
-                                                        
-                                        //hear send mailer
-                                        
-                }else{
-                    $_SESSION["emailsession"]="";
+
+
+
+                    //select
+
+                    $verified = "verified";
+                    $selectforgotdb =  $con->query("SELECT forgot FROM $tbnamedashbord ");
+                    $forgotnumber = $selectforgotdb->fetch();
+                    $number = $forgotnumber['forgot'];
+
+                    if ($verified == "verified") {
+                        $number++;
+                        $update = "UPDATE $tbnamedashbord SET forgot='$number' ";
+                        $updateforgot = $con->prepare($update);
+                        $updateforgot->execute();
+                    }
+
+                    //dashbord
+
+                    echo "verified";
+                    //hear send mailer
+
+                } else {
+                    $_SESSION["emailsession"] = "";
                     echo "emaildb";
-                    
-
                 }
-            }catch(PDOException $e){
-                echo "notverified". $e->getMessage();
+            } catch (PDOException $e) {
+                echo "notverified" . $e->getMessage();
             }
-       
-
-    }else{
-        echo "emailbad";
+        } else {
+            echo "emailbad";
+        }
+    } else {
+        echo "emaliempty";
     }
-}else{
-    echo "emaliempty";
 }
-}
-?>
-
