@@ -108,9 +108,9 @@ submit.addEventListener("click", function () {
       iconVerified.id="iconVerified";
       verified.appendChild(iconVerified);
 
-      setTimeout(function () {
+      
         window.location.replace("DASHBORD/DASHBORD.php");
-    }, 990);
+   
  
     }
   }; //onload
