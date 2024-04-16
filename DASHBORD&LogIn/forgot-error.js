@@ -59,7 +59,8 @@ request.onload = () => {
     
   }
  
-  else if (action.trim().toLowerCase() == "verified") {
+  else if (action.trim().toLowerCase() == "verified" || action == "verified") {
+    location.href = "code.html";
    loader.style.display="block";
     clear();
     let iconVerified = document.createElement("img");
@@ -67,8 +68,7 @@ request.onload = () => {
     iconVerified.id="iconVerified";
     verified.appendChild(iconVerified);
 
-   
-      window.location.replace("code.html");
+
  
 
 
