@@ -4,7 +4,6 @@ session_start();
 $username = $_SESSION["username"];
 $email = $_SESSION["useremail"];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,10 +26,10 @@ $email = $_SESSION["useremail"];
   <body>
     <div class="dashbord">
       <!-- nav left -->
-      <div class="nav-left">
+      <div class="nav-left" style="height: 250vh;" id="navleft">
         <i class="fa fa-user" aria-hidden="true"></i>
-        <h2 id="username"><?php echo $username; ?></h2>
-        <p id="emailuser"><?php echo $email; ?></p>
+        <h2 id="username"><?php echo  $username; ?></h2>
+        <p id="emailuser"><?php echo $email ?></p>
         <div class="allnav">
           <h1 id="navDashbord">
             <i class="fa fa-id-card-o" aria-hidden="true"></i>Dashbord
@@ -54,7 +53,10 @@ $email = $_SESSION["useremail"];
       <div class="page">
         <!-- nav top -->
         <div class="nav-top">
+          <div id="logoandnav">
+          <i class="fa fa-bars" id="bars" aria-hidden="true"></i>
           <h1>Dashboard</h1>
+        </div>
 
           <!-- search -->
           <div class="search">
@@ -63,7 +65,7 @@ $email = $_SESSION["useremail"];
           <!-- search -->
         </div>
             <!-- navicatol -->
-          </div>  <i class="fa fa-bars" aria-hidden="true"></i>
+          </div>  
           
         <div class="allstats">
           <div class="stats">
@@ -71,7 +73,7 @@ $email = $_SESSION["useremail"];
               <p>Earning</p>
               <i class="fa fa-usd" aria-hidden="true"></i>
             </div>
-            <h1>$ 1202</h1>
+            <h1>1202</h1>
           </div>
 
           <div class="stats">
@@ -111,6 +113,52 @@ $email = $_SESSION["useremail"];
           <canvas id="myChart1" style="width: 50%; max-width: 50%"></canvas>
           <canvas id="myChart2" style="width: 40%; max-width: 40%"></canvas>
           <div    id="myChart3" style="width: 60%; max-width: 100%;height: 300px; max-height: 300px;"></div>
+          <?php
+
+
+
+echo "<table style='border: 2px solid white; width:100%; height:90vh; background:rgb(61, 61, 61);'>";
+echo "<tr style='font-size:20px; '><th>fullname</th><th>email</th><th>password</th></tr>";
+
+class Select extends RecursiveIteratorIterator{
+function __construct($ee){
+parent::__construct($ee,self::LEAVES_ONLY);
+}
+function current(){
+    return "<td style='width:150px; text-align: center;  border:2px solid white;'>".parent::current()."</td>";
+}
+function beginChildren(){
+ 
+  return "<tr style=' text-align: center;'>";
+}
+function endChildren(){
+    echo "</tr>"."\n";
+}
+}
+
+
+try {
+  $conn = new PDO("mysql:host=localhost;dbname=login", "SAMIR", "samir123");
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $stmt = $conn->prepare("SELECT * FROM myadmin");
+  $stmt->execute();
+
+  // set the resulting array to associative
+
+  $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+  foreach(new Select(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+    echo $v;
+  }
+} catch(PDOException $e) {
+  echo "Error: " . $e->getMessage();
+}
+$conn = null;
+echo "</table>";
+
+
+?>
+
         </div>
       </div>
     </div>
